@@ -11,7 +11,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
-        <style>
+        <!-- <style>
             body {
                 margin: 0;
                 display: flex;
@@ -37,22 +37,69 @@
                 font-size: 18px;
                 width: 80%;
             }
-        </style>
+        </style> -->
     <body>
+
+
+
+        <div>
+        <nav>
+            <ul>
+                <li> <a href="#Intro"> Introduction </a></li>
+                <li> <a href="#Education"> Education </a></li>
+                <li> <a href="#Proj"> Projects </a></li>
+            </ul>
+        </nav>
+        </div>
+
+
+
+        <!--
+        <header > <strong> <a href="Intro"> </a>Introduction </strong> </header>
+        <header> <strong> <a href="Education"></a> Education </strong> </header>
+        <header> <strong> <a href="Proj"> Projects </strong> </header>
+        -->
+
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <header > <strong> Education </strong> </header>
-        <header> <strong> Background </strong> </header>
-        <header> <strong> Projects </strong></header>
-        <h1> Education </h1>
-        <p> I graduated from Clark University with a BA in data science and geography, and am currently pursuing my masters in GIS there through the advanced degree program </p>
-        <h2 style="color:rgb(202, 94, 22);font-size: 60px">Background</h2>
-        <p>I have worked as a researcher for Clark University through the HERO program, and for NASA through the DEVELOP program and NOAA - NCEI</p>
+        <div class = "Intro" id = "Intro">
+        <h1 style="color:rgb(48, 75, 22);font-size: 60px"> Introduction </h1>
+
+        <p> Welcome to my website </p>
+        </div>
+     
+        <div class = "pro_image"> 
+            <figure> 
+                <a href="statistics.html" targety="_blank">
+                <img src="images\Headshot.MP~3.jpg">
+                <figcaption> Statistics</figcaption>
+                </a>    
+            </figure>
+
+
+
+        </div>
+
+        <div class = "Education" id = "Education">
+        <h2 style="color:rgb(202, 94, 22);font-size: 60px"> Education </h2>
+        <img src="images\Clark_uni_logo.png" height=200 width=200 alt="Clark Logo">
+        <p> I graduated from Clark University with a BA in data science and geography, and am currently pursuing my masters in GIS there through the advanced degree program</p>
+        </div>
+        
+        <div class = "Proj" id = "Proj">
         <h3 style="color:rgb(37, 107, 112);font-size: 60px"> Projects</h3>
-        <p>Here are my current projects!</p>
+        <p>I have worked as a researcher for Clark University through the HERO program, and for NASA through the DEVELOP program and NOAA - NCEI </p>
+        </div>
+
 
 
         <script src="" async defer></script>
+
+
+        <footer> 
+            <p> Caleb Kluchman </p>
+            <p> <a href="mailto:calebkluchman@gmail.com"> calebkluchman@gmail.com </a></p>
+        </footer>
     </body>
 </html>
