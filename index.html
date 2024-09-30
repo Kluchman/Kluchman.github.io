@@ -64,14 +64,13 @@
 
 
         <link rel="stylesheet" href="css/backToTopButton.css">
+        <link rel="stylesheet" href="css/highlight_style.css">
     
         </head>
         
     <body>
         
-        <div class="backtoTop">
-            backToTop
-        </div>
+        <div class="backtoTop"></div>
         
         <div class="nav_bar_header1"><h1>Click the text to cycle through the readme to this website</h1></div>
         <div class="nav_bar_header2"><h1>This is a work in progress... stay tuned! In consolation, here is a poem by robbert frost.</h1></div>
@@ -201,6 +200,20 @@
         <h3 style="color:rgb(37, 107, 112);font-size: 60px"> Projects</h3>
         <p>I have worked as a researcher for Clark University through the HERO program, and for NASA through the DEVELOP program and NOAA - NCEI </p>
         <p>I am also working as Course Assistant for Advanced Geospatial Analytics with Python with <a href="https://hamedalemo.github.io/" target="_blank">Hamed Alemohammad</a> at Clark University.</p>
+        <button class="change_bk">Click here to highlight my past experience</button>
+            
+        <!-- Gallery item section -->
+        <div class="gallery-item">
+            <img src="images\DEVELOP_Titlepage.png" 
+            alt="My NASA DEVELOP Project" class="gallery-img">
+            <figcaption style="font-size: 20px;">My work for the City of Asheville with NASA DEVELOP</figcaption>
+        </div>
+
+        <!-- Pop-up window for image -->
+        <div class="myPop">
+            <span class="close">&times;</span>
+            <img id="img_pop" style="margin-top: 10rem;">
+            <h1 id="h1_pop"></h1>
 
         </div>
 
@@ -220,6 +233,9 @@
     </div>
 
     <script src="js/button.js"></script>
+    <script src="js/highlight.js"></script>
 
+
+    
     </body>
 </html>
