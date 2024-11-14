@@ -66,29 +66,42 @@
         }
 
         /* Carousel Styling */
+        /* Carousel Container */
         .carousel-container {
             display: flex;
             overflow-x: scroll;
             scroll-behavior: smooth;
             scrollbar-width: thin;
             position: relative;
-            max-width: 800px;
+            max-width: 1000px; /* Increased width */
+            max-height: 600px;  /* Increased height for larger viewing area */
             margin: auto;
+            padding: 10px; /* Add padding for spacing */
         }
 
+        /* Carousel Slide */
         .carousel-slide {
             display: flex;
         }
 
+        /* Carousel Item */
         .carousel-item {
-            min-width: 100%;
+            min-width: 100%; /* Ensures full-width slides */
+            height: 500px; /* Increase height to display larger images */
             box-sizing: border-box;
+            text-align: center; /* Center the content inside each item */
         }
 
+        /* Optional: Adjust the images within the carousel items */
+        .carousel-item img {
+            width: 100%; /* Make images fit the carousel window */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 100%; /* Prevent overflow beyond the container */
+        }
         /* Carousel Arrows */
         .carousel-arrow {
-            position: absolute;
-            top: 50%;
+            position: fixed; /* Keeps the arrows fixed on the screen */
+            top: 50%; /* Centers vertically */
             transform: translateY(-50%);
             font-size: 2rem;
             color: #007bff;
@@ -100,13 +113,12 @@
         }
 
         .carousel-arrow.left {
-            left: 10px;
+            left: 10px; /* Position fixed 10px from the left of the screen*/
         }
 
         .carousel-arrow.right {
-            right: 10px;
+            right: 10px; /* Position fixed 10px from the right of the screen */
         }
-
         /* Map Container */
         .map-container {
             position: relative;
@@ -161,12 +173,12 @@
             <button class="carousel-arrow right">›</button>
             <div class="carousel-slide">
                 <div class="carousel-item">
-                    <img src="images/DEVELOP_Titlepage.png" alt="NASA DEVELOP Project">
+                    <img src="images/DEVELOP_Titlepage.png" alt="NASA DEVELOP Urban Heat Project">
                     <p>My work for the City of Asheville with NASA DEVELOP</p>
                 </div>
                 <div class="carousel-item">
-                    <img src="images/another_project_image.png" alt="Another Project">
-                    <p>Another exciting project description here.</p>
+                    <img src="images/HERO2023_Quant_Poster.png" alt="HERO Urban Forestry Project">
+                    <p>My work for the City of Worcester with the HERO research team/p>
                 </div>
             </div>
         </div>
@@ -175,7 +187,11 @@
         <h4>Interactive Map</h4>
         <div class="map-container">
             <iframe src="https://kluchman.github.io/HVI_leaflet_map/" title="Interactive Map" allowfullscreen></iframe>
-        </div>
+        </div>w
+
+        <!-- Interactive PowerPoint Presentation through NASA DEVELOP to the City of Asheville and Asheville Greenworks-->
+        <h5>Interactive PowerPoint Presentation through NASA DEVELOP to the City of Asheville and Asheville Greenworks</h4>
+        <iframe src="files/2024NASA_DEVELOP_NCEI_AshevilleUrbanII_Presentation.pptx.pdf" width="100%" height="600px"></iframe>
     </div>
 
     <div class="contactMe" id="ContactMe">
