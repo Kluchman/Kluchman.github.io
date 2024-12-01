@@ -8,233 +8,244 @@
     <link rel="stylesheet" href="css/highlight_style.css">
 
     <style>
-        /* Basic Styling */
+        /* General Styling */
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             margin: 0;
             padding: 0;
             scroll-behavior: smooth;
+            background-color: #f9f9f9;
+            color: #333;
         }
 
-        h1, h2, h3 {
-            color: rgb(48, 75, 22);
-            font-size: 40px;
+        header {
+            background-color: #481eaa;
+            color: white;
+            padding: 20px 0;
             text-align: center;
         }
 
-        .intro, .education, .proj, .contactMe {
-            max-width: 800px;
-            text-align: center;
-            margin: 20px auto;
-            padding: 10px;
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
         }
 
-        /* Sticky Navigation Bar */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Navigation Bar */
         .nav-container {
             position: sticky;
             top: 0;
             background-color: #fff;
             z-index: 1000;
-            padding: 10px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .nav-container nav ul {
-            list-style-type: none;
-            padding: 0;
+        nav ul {
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
+            list-style-type: none;
+            margin: 0;
+            padding: 10px 0;
         }
 
-        .nav-container nav ul li {
-            margin-right: 15px;
+        nav ul li {
+            margin: 0 10px;
         }
 
-        .nav-container nav ul li a {
+        nav ul li a {
             text-decoration: none;
-            color: #007bff;
+            color: #481eaa;
             padding: 5px 10px;
             border-radius: 5px;
         }
 
-        .nav-container nav ul li a:hover {
-            background-color: #007bff;
+        nav ul li a:hover {
+            background-color: #481eaa;
             color: white;
         }
 
-        /* Carousel Styling */
-        /* Carousel Container */
+        /* Section Styling */
+        section {
+            margin: 40px 0;
+            padding: 20px 0;
+        }
+
+        section h2, section h3 {
+            color: #481eaa;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .intro, .education, .proj, .contactMe, .AwardsandConferences {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .intro p, .education p, .proj p, .AwardsandConferences p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* Project Section */
         .carousel-container {
             display: flex;
-            overflow-x: scroll;
-            scroll-behavior: smooth;
-            scrollbar-width: thin;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            max-width: 100%;
             position: relative;
-            max-width: 1000px; /* Increased width */
-            max-height: 600px;  /* Increased height for larger viewing area */
-            margin: auto;
-            padding: 10px; /* Add padding for spacing */
+            margin: 30px auto;
         }
 
-        /* Carousel Slide */
         .carousel-slide {
             display: flex;
+            transition: transform 0.3s ease-in-out;
         }
 
-        /* Carousel Item */
         .carousel-item {
-            min-width: 100%; /* Ensures full-width slides */
-            height: 500px; /* Increase height to display larger images */
-            box-sizing: border-box;
-            text-align: center; /* Center the content inside each item */
+            min-width: 100%;
+            text-align: center;
         }
 
-        /* Optional: Adjust the images within the carousel items */
         .carousel-item img {
-            width: 100%; /* Make images fit the carousel window */
-            height: auto; /* Maintain aspect ratio */
-            max-height: 100%; /* Prevent overflow beyond the container */
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
         }
-        /* Carousel Arrows */
+
         .carousel-arrow {
-            position: fixed; /* Keeps the arrows fixed on the screen */
-            top: 50%; /* Centers vertically */
+            position: absolute;
+            top: 50%;
             transform: translateY(-50%);
             font-size: 2rem;
             color: #007bff;
             background-color: rgba(255, 255, 255, 0.8);
             border: none;
             cursor: pointer;
-            padding: 5px;
+            padding: 10px;
             z-index: 10;
         }
 
         .carousel-arrow.left {
-            left: 10px; /* Position fixed 10px from the left of the screen*/
+            left: 10px;
         }
 
         .carousel-arrow.right {
-            right: 10px; /* Position fixed 10px from the right of the screen */
+            right: 10px;
         }
-        /* Map Container */
+
+        /* Interactive Map */
         .map-container {
             position: relative;
             width: 100%;
-            height: 0;
-            padding-bottom: 75%; /* Adjust for aspect ratio */
+            height: 500px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
             overflow: hidden;
         }
 
         .map-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            border: 0;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background-color: #f1f1f1;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            color: #555;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
-
 <body>
+    <header>
+        <h1>Welcome to Caleb Kluchman's Personal Website</h1>
+    </header>
+
     <div class="nav-container">
         <nav>
             <ul>
                 <li><a href="#Intro">Introduction</a></li>
                 <li><a href="#Education">Education</a></li>
                 <li><a href="#Proj">Projects</a></li>
-                <li><a href="#ContactMe">Contact Me</a></li>
+                <li><a href="#Awards_and_Conferences">Awards & Conferences</a></li>
+                <li><a href="#ContactMe">Contact</a></li>
             </ul>
         </nav>
     </div>
 
-    <div class="intro" id="Intro">
-        <h1>Introduction</h1>
-        <p>Welcome to my website.</p>
-    </div>
+    <div class="container">
+        <section class="intro" id="Intro">
+            <h2>Introduction</h2>
+            <p>Welcome! I am Caleb Kluchman, a GIS enthusiast and researcher passionate about geospatial analytics, urban planning, and data science.</p>
+        </section>
 
-    <div class="education" id="Education">
-        <h2>Education</h2>
-        <img src="images/Clark_uni_logo.png" height="200" width="200" alt="Clark Logo">
-        <p>I graduated from Clark University with a BA in data science and geography, and am currently pursuing my masters in GIS there through the advanced degree program.</p>
-    </div>
+        <section class="education" id="Education">
+            <h2>Education</h2>
+            <img src="images/Clark_uni_logo.png" alt="Clark University Logo" style="width: 150px; height: auto; float: left; margin-right: 20px;">
+            <p>I hold a BA in Data Science and Geography from Clark University and am currently pursuing a Master’s degree in GIS through their Advanced Degree Program.</p>
+        </section>
 
-    <div class="proj" id="Proj">
-        <h3>Projects</h3>
-        <p>I have worked as a researcher for Clark University through the HERO program, and for NASA through the DEVELOP program and NOAA - NCEI.</p>
-        <p>I am also working as Course Assistant for Advanced Geospatial Analytics with Python with <a href="https://hamedalemo.github.io/" target="_blank">Hamed Alemohammad</a> at Clark University.</p>
-
-        <!-- Carousel -->
-        <div class="carousel-container">
-            <button class="carousel-arrow left">‹</button>
-            <button class="carousel-arrow right">›</button>
-            <div class="carousel-slide">
-                <div class="carousel-item">
-                    <img src="images/DEVELOP_Titlepage.png" alt="NASA DEVELOP Urban Heat Project">
-                    <p>My work for the City of Asheville with NASA DEVELOP</p>
-                </div>
-                <div class="carousel-item">
-                    <img src="images/HERO2023_Quant_Poster.png" alt="HERO Urban Forestry Project">
-                    <p>My work for the City of Worcester with the HERO research team/p>
+        <section class="proj" id="Proj">
+            <h2>Projects</h2>
+            <div class="carousel-container">
+                <button class="carousel-arrow left">‹</button>
+                <button class="carousel-arrow right">›</button>
+                <div class="carousel-slide">
+                    <div class="carousel-item">
+                        <img src="images/DEVELOP_Titlepage.png" alt="NASA DEVELOP Urban Heat Project">
+                        <p>NASA DEVELOP: Urban Heat Analysis in Asheville, NC</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/HERO2023_Quant_Poster.png" alt="HERO Urban Forestry Project">
+                        <p>HERO Research: Urban Forestry in Worcester, MA</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Interactive Map -->
-        <h4>Interactive Map</h4>
-        <div class="map-container">
-            <iframe src="https://kluchman.github.io/HVI_leaflet_map/" title="Interactive Map" allowfullscreen></iframe>
-        </div>w
+            <div class="map-container">
+                <iframe src="https://kluchman.github.io/HVI_leaflet_map/" title="Interactive Map"></iframe>
+            </div>
+        </section>
 
-        <!-- Interactive PowerPoint Presentation through NASA DEVELOP to the City of Asheville and Asheville Greenworks-->
-        <h5>Interactive PowerPoint Presentation through NASA DEVELOP to the City of Asheville and Asheville Greenworks</h4>
-        <iframe src="files/2024NASA_DEVELOP_NCEI_AshevilleUrbanII_Presentation.pptx.pdf" width="100%" height="600px"></iframe>
+        <section class="AwardsandConferences" id="Awards_and_Conferences">
+            <h2>Awards & Conferences</h2>
+            <p>Details about awards and conferences will be added soon. Stay tuned!</p>
+        </section>
+
+        <section class="contactMe" id="ContactMe">
+            <h2>Contact Me</h2>
+            <p>Email: <a href="mailto:calebkluchman@gmail.com">calebkluchman@gmail.com</a></p>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfp3xFVRdzvVJnzp52rt5lKi2MYcdzX76scM23W0exv8kyHoQ/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </section>
     </div>
 
-    <div class="contactMe" id="ContactMe">
-        <footer>
-            <h4>Contact Me!</h4>
-            <p>Caleb Kluchman</p>
-            <p><a href="mailto:calebkluchman@gmail.com">calebkluchman@gmail.com</a></p>
-            <p>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfp3xFVRdzvVJnzp52rt5lKi2MYcdzX76scM23W0exv8kyHoQ/viewform?embedded=true" width="640" height="414" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-            </p>
-        </footer>
-    </div>
-
-    <!-- Carousel JavaScript -->
-    <script>
-        const carouselContainer = document.querySelector('.carousel-container');
-        const items = document.querySelectorAll('.carousel-item');
-        const leftArrow = document.querySelector('.carousel-arrow.left');
-        const rightArrow = document.querySelector('.carousel-arrow.right');
-
-        const itemWidth = items[0].offsetWidth;
-        let currentIndex = 0;
-
-        function scrollToIndex() {
-            carouselContainer.scrollLeft = currentIndex * itemWidth;
-        }
-
-        rightArrow.addEventListener('click', () => {
-            currentIndex = Math.min(currentIndex + 1, items.length - 1);
-            scrollToIndex();
-        });
-
-        leftArrow.addEventListener('click', () => {
-            currentIndex = Math.max(currentIndex - 1, 0);
-            scrollToIndex();
-        });
-
-        carouselContainer.addEventListener('scroll', () => {
-            currentIndex = Math.round(carouselContainer.scrollLeft / itemWidth);
-        });
-    </script>
-
-    <script src="js/button.js"></script>
-    <script src="js/highlight.js"></script>
+    <footer>
+        <p>&copy; 2024 Caleb Kluchman</p>
+    </footer>
 </body>
 </html>

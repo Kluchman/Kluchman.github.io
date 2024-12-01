@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Caleb Kluchman</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- Include your common CSS file -->
+    <style>
+        /* Basic styling for the page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .nav-container {
+            background-color: #333;
+            padding: 10px;
+        }
+
+        .nav-container nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-container nav ul li {
+            margin: 0 15px;
+        }
+
+        .nav-container nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 5px 10px;
+        }
+
+        .nav-container nav ul li a:hover {
+            background-color: #007bff;
+        }
+
+        /* Portfolio Grid Container */
+        .portfolio-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        /* Individual Project */
+        .portfolio-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .portfolio-item h3 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* Modal (for expanded project) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            max-width: 90%;
+            margin: 20px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .modal img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Full-screen Interactive Map */
+        .interactive-map-container {
+            width: 1200px;
+            height: 800px;
+        }
+
+        /* Ensure iframe inside modal takes full size */
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="nav-container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#Portfolio">Portfolio</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Portfolio Section -->
+    <div class="portfolio-container" id="Portfolio">
+        <!-- Individual Project -->
+        <div class="portfolio-item" onclick="openProject('project1')">
+            <img id="project1-preview" src="images/HVI_Asheville_Preview.png" alt="HVI Asheville Preview">
+            <div id="project1-details">
+                <h3>Interactive Map Project</h3>
+                <p>Description for Project 1</p>
+            </div>
+        </div>
+
+        <!-- Add more portfolio items here -->
+        <div class="portfolio-item" onclick="openProject('project2')">
+            <img src="images/project2.jpg" alt="Project 2">
+            <h3>Project 2 Title</h3>
+        </div>
+        <div class="portfolio-item" onclick="openProject('project3')">
+            <img src="images/project3.jpg" alt="Project 3">
+            <h3>Project 3 Title</h3>
+        </div>
+    </div>
+
+    <!-- Modal for showing full project -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="modal-map" class="interactive-map-container">
+                <!-- Interactive map will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Open project in modal
+        function openProject(projectId) {
+            // Get project details based on projectId
+            const projects = {
+                'project1': {
+                    title: 'Interactive Map Project',
+                    img: 'images/HVI_Asheville_Preview.png', // Static image shown before click
+                    description: 'This project shows an interactive map of Asheville.',
+                    iframeUrl: 'https://kluchman.github.io/HVI_leaflet_map/' // Interactive map URL
+                },
+                'project2': {
+                    title: 'Project 2 Title',
+                    img: 'images/project2.jpg',
+                    description: 'Description for Project 2.',
+                    iframeUrl: '' // Insert iframe URL for this project if needed
+                },
+                'project3': {
+                    title: 'Project 3 Title',
+                    img: 'images/project3.jpg',
+                    description: 'Description for Project 3.',
+                    iframeUrl: '' // Insert iframe URL for this project if needed
+                }
+            };
+
+            // Get the project object
+            const project = projects[projectId];
+            
+            // Get the modal and map container elements
+            const modal = document.getElementById('modal');
+            const modalMapContainer = document.getElementById('modal-map');
+
+            // Show the modal
+            modal.style.display = 'flex';
+
+            // Remove previous iframe if any
+            modalMapContainer.innerHTML = ''; 
+
+            // Create and insert the iframe for the interactive map
+            const iframe = document.createElement('iframe');
+            iframe.src = project.iframeUrl;
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';  // Fill the modal container
+            iframe.style.border = 'none';
+            modalMapContainer.appendChild(iframe);
+        }
+
+        // Close modal
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
+        }
+
+        // Close the modal if clicked outside of the content area
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>
