@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Caleb Kluchman</title>
-    <link rel="stylesheet" href="css/style.css"> <!-- Include your common CSS file -->
+    <link rel="stylesheet" href="css/style.css">
     <style>
         /* Basic styling for the page */
         body {
@@ -13,68 +13,93 @@
             padding: 0;
             background-color: #f9f9f9;
         }
-
+    
         .nav-container {
-            background-color: #333;
+            background-color: #481eaa;
             padding: 10px;
         }
-
+    
         .nav-container nav ul {
             list-style-type: none;
             padding: 0;
             display: flex;
             justify-content: center;
         }
-
+    
         .nav-container nav ul li {
             margin: 0 15px;
         }
-
+    
         .nav-container nav ul li a {
             text-decoration: none;
             color: white;
+            font-size: 18pt;
             padding: 5px 10px;
         }
-
+    
         .nav-container nav ul li a:hover {
             background-color: #007bff;
         }
-
-        /* Portfolio Grid Container */
+    
+        /* Portfolio Container */
         .portfolio-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
             padding: 20px;
             margin: 20px;
         }
-
-        /* Individual Project */
-        .portfolio-item {
-            background-color: white;
+    
+        /* Portfolio Category Styling (Updated) */
+        .portfolio-category {
             padding: 20px;
+            margin: 20px; /* Ensure uniform margins */
+        
+        }
+            
+        .portfolio-category h2 {
+            border-bottom: 2px solid #481eaa;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+    
+        /* Portfolio Items Styling */
+        .portfolio-items {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 10px 0;
+            flex-wrap: nowrap;
+        }
+    
+        .portfolio-item {
+            flex: 0 0 auto;
+            width: 250px;
+            background-color: white;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             cursor: pointer;
             transition: transform 0.3s ease;
         }
-
+    
         .portfolio-item:hover {
             transform: scale(1.05);
         }
-
+    
         .portfolio-item img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 0 0 8px 8px;
         }
-
+    
         .portfolio-item h3 {
             text-align: center;
-            color: #333;
+            color: #481eaa;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
         }
-
+    
         /* Modal (for expanded project) */
         .modal {
             display: none;
@@ -88,22 +113,36 @@
             align-items: center;
             z-index: 1000;
         }
-
+    
         .modal-content {
             background-color: white;
             padding: 20px;
-            max-width: 90%;
-            margin: 20px;
+            width: 70%;
+            height: 90%; /* Increased height to take up more of the screen */
             border-radius: 8px;
             position: relative;
+            overflow: hidden; /* Ensure map content stays within bounds */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex; /* Makes content flex and fill available space */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
-
+    
         .modal img {
             width: 100%;
             height: auto;
             border-radius: 8px;
         }
 
+        .interactive-map-container {
+            width: 100%; /* Full width of the modal */
+            height: 100%; /* Fill the modal height */
+            border: 1px solid #ccc; /* Optional border for clarity */
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    
         .close-btn {
             position: absolute;
             top: 10px;
@@ -114,27 +153,19 @@
             font-size: 20px;
             cursor: pointer;
         }
-
+    
         .close-btn:hover {
             background-color: #007bff;
             color: white;
         }
 
-        /* Full-screen Interactive Map */
-        .interactive-map-container {
-            width: 1200px;
-            height: 800px;
-        }
-
-        /* Ensure iframe inside modal takes full size */
-        #map {
-            width: 100%;
-            height: 100%;
+        .portfolio-category {
+            padding: 20px;
+            margin: 20px; /* Normalize all margins */
         }
     </style>
 </head>
 <body>
-
     <!-- Navigation Bar -->
     <div class="nav-container">
         <nav>
@@ -147,90 +178,186 @@
 
     <!-- Portfolio Section -->
     <div class="portfolio-container" id="Portfolio">
-        <!-- Individual Project -->
-        <div class="portfolio-item" onclick="openProject('project1')">
-            <img id="project1-preview" src="images/HVI_Asheville_Preview.png" alt="HVI Asheville Preview">
-            <div id="project1-details">
-                <h3>Interactive Map Project</h3>
-                <p>Description for Project 1</p>
+        <!-- Category: Interactive Maps -->
+        <div class="portfolio-category">
+            <h2>Interactive Maps</h2>
+            <div class="portfolio-items">
+                <div class="portfolio-item" onclick="openProject('project_Interactive_DEVELOP_Map')">
+                    <h3>Interactive Map Project</h3>
+                    <img src="images/HVI_Asheville_Preview.png" alt="HVI Asheville Preview">
+                </div>
+                <div class="portfolio-item" onclick="openProject('project_dashapp_Map')">
+                    <h3>Interactive Dashapp App</h3>
+                    <img src="images/dashapp_preview_image.png" alt="Dashapp Preview">
+                </div>
+                <div class="portfolio-item" onclick="openProject('project_Solar_Panels_Map')">
+                    <h3>Solar Panels in Providence</h3>
+                    <img src="images/Providence_preview_image.png" alt="Solar Panels Map">
+                </div>
+                <div class="portfolio-item" onclick="openProject('project_Night_Lights_Map')">
+                    <h3>Nighttime Lights in Asheville</h3>
+                    <img src="images/Night_Lights_preview_image.png" alt="Night Lights Map">
+                </div>
             </div>
         </div>
 
-        <!-- Add more portfolio items here -->
-        <div class="portfolio-item" onclick="openProject('project2')">
-            <img src="images/project2.jpg" alt="Project 2">
-            <h3>Project 2 Title</h3>
+
+        <!-- Category: Full Presentations -->
+        <div class="portfolio-category">
+            <h2>Full Presentations</h2>
+            <div class="portfolio-items">
+                <div class="portfolio-item" onclick="openProject('project_DEVELOP_Presentation')">
+                    <h3>Urban Heat Island Effect in Asheville NC</h3>
+                    <img src="images/DEVELOP_Titlepage.png" alt="DEVELOP resentation">
+                    
+                </div>
+                <div class="portfolio-item" onclick="openProject('project_HERO_Presentation')">
+                    <h3>Tree Survivorship in Worcester</h3>
+                    <img src="images/Hero_presentation_image.png" alt="HERO Presentation">
+
+                </div>
+                <div class="portfolio-item" onclick="openProject('project_Air_Quality_Presentation')">
+                    <h3>Examining Air Quality in Mexico City</h3>
+                    <img src="images/Int_DEV_presentation_image.png" alt="Air Quality Presentation">
+
+                </div>
+            </div>
         </div>
-        <div class="portfolio-item" onclick="openProject('project3')">
-            <img src="images/project3.jpg" alt="Project 3">
-            <h3>Project 3 Title</h3>
+
+        <!-- Category: Posters -->
+        <div class="portfolio-category">
+            <h2>Posters</h2>
+            <div class="portfolio-items">
+                <div class="portfolio-item" onclick="openProject('project_Eucalyptus_Poster')">
+                    <h3>Eucalyptus Growth in SF Bay</h3>
+                    <img src="images/Eucalyptus_ML_image.png" alt="Eucalyptus Poster">
+                    
+                </div>
+                <div class="portfolio-item" onclick="openProject('project_NEARC_Poster')">
+                    <h3>Nighttime Lights Poster</h3>
+                    <img src="images/Nearc_Image.png" alt="NEARC Poster">
+                    
+                </div>
+                <div class="portfolio-item" onclick="openProject('project_NESTVAL_Poster')">
+                    <h3>Tree Survivorship Poster</h3>
+                    <img src="images/HERO2023_Quant_Poster.png" alt="NESTVAL Poster">
+                    
+                </div>
+            </div>
         </div>
     </div>
+</div>
 
     <!-- Modal for showing full project -->
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div id="modal-map" class="interactive-map-container">
-                <!-- Interactive map will be inserted here -->
-            </div>
+            <div id="modal-map" class="interactive-map-container"></div>
         </div>
     </div>
 
+
     <script>
-        // Open project in modal
         function openProject(projectId) {
-            // Get project details based on projectId
             const projects = {
-                'project1': {
+                'project_Interactive_DEVELOP_Map': {
                     title: 'Interactive Map Project',
-                    img: 'images/HVI_Asheville_Preview.png', // Static image shown before click
+                    img: 'images/HVI_Asheville_Preview.png',
                     description: 'This project shows an interactive map of Asheville.',
-                    iframeUrl: 'https://kluchman.github.io/HVI_leaflet_map/' // Interactive map URL
+                    iframeUrl: 'https://kluchman.github.io/HVI_leaflet_map/'
                 },
-                'project2': {
-                    title: 'Project 2 Title',
-                    img: 'images/project2.jpg',
-                    description: 'Description for Project 2.',
-                    iframeUrl: '' // Insert iframe URL for this project if needed
+                'project_dashapp_Map': {
+                    title: 'Interactive Dashapp App',
+                    img: 'images/dashapp_preview_image.png',
+                    description: 'This app shows retrieves and filters service requests in Boston, MA and is published using Dash',
+                    iframeUrl: 'https://service-requests-dash-lab08-1.onrender.com/'
                 },
-                'project3': {
-                    title: 'Project 3 Title',
-                    img: 'images/project3.jpg',
-                    description: 'Description for Project 3.',
-                    iframeUrl: '' // Insert iframe URL for this project if needed
-                }
+                'project_HERO_Presentation': {
+                    title: 'Tree Survivorship in Worcester',
+                    img: 'images/Hero_presentation_image.png',
+                    description: 'This was the presentation given to the DCR and media on a study I conducted with the HERO research fellowship on tree survivorship in Worcester, MA.',
+                    iframeUrl: 'images/CK_HERO_Tree_Mortality_Presentation.pdf'
+                },
+                'project_Eucalyptus_Poster': {
+                    title: 'Eucalyptus Growth in San Francisco Bay',
+                    img: 'images/Eucalyptus_ML_image.png',
+                    description: 'This was the poster component of my final project for my course titled Advanced Raster GIS, where I worked with a team to examine Eucalyptus Growth in the San Francisco Bay area using Random Forests in Google Earth Engine and Maximum Entropy in ArcGIS Pro.',
+                    iframeUrl: 'images/CK_Eucalyptus_Growth_SF.pdf'
+                },
+                'project_Solar_Panels_Map': {
+                    title: 'Solar Panels in Providence RI',
+                    img: 'images/Providence_preview_image.png',
+                    description: 'A test application of the ArcPy SDK',
+                    iframeUrl: 'https://kluchman.github.io/Providence_Solar_Panels_Lab09/'
+                },
+
+                'project_Night_Lights_Map': {
+                    title: 'Nighttime Lights in Providence RI',
+                    img: 'images/Night_Lights_preview_image.png',
+                    description: 'An interactive map showing night time lights in Asheville NC',
+                    iframeUrl: 'https://kluchman.github.io/gee_nightime_asheville_lab10/'
+                },
+
+                'project_Air_Quality_Presentation': {
+                    title: 'Examining Air Quality in Mexico City',
+                    img: 'images/Int_DEV_presentation_image.png',
+                    description: 'A presentation on using distance to vegetation as a proxity to measure air quality injustices',
+                    iframeUrl: 'images/Caleb_Kluchman_Final_Project_Presentation_Int_Dev.pdf'
+                },
+
+                'project_NEARC_Poster': {
+                    title: 'Environmental Injustice and UHI in Worcester',
+                    img: 'images/Nearc_image.png',
+                    description: 'An interactive map showing night time lights in Asheville NC',
+                    iframeUrl: 'images/CK_NEARC_2024_Poster.pptx.pdf'
+                },
+
+                'project_NESTVAL_Poster': {
+                    title: 'Tree Survivorship Poster',
+                    img: 'images/HERO2023_Quant_Poster.png',
+                    description: 'Award Winning Poster for NESTVAL conference on urban tree survivorship in Worcester, MA',
+                    iframeUrl: 'images/HERO2023_Quant_Poster.png'
+                },
+
+                'project_DEVELOP_Presentation': {
+                    title: 'Asheville UHI Effect and Offset Plans',
+                    img: 'images/DEVELOP_Titlepage.png',
+                    description: 'Full presentation to the City of Asheville on the UHI effect in Asheville and Vulnerable Populations',
+                    iframeUrl: 'images/2024NASA_DEVELOP_NCEI_AshevilleUrbanII_Presentation.pptx.pdf'
+                },
+
+
             };
 
-            // Get the project object
             const project = projects[projectId];
-            
-            // Get the modal and map container elements
             const modal = document.getElementById('modal');
             const modalMapContainer = document.getElementById('modal-map');
 
-            // Show the modal
             modal.style.display = 'flex';
+            modalMapContainer.innerHTML = '';
 
-            // Remove previous iframe if any
-            modalMapContainer.innerHTML = ''; 
-
-            // Create and insert the iframe for the interactive map
-            const iframe = document.createElement('iframe');
-            iframe.src = project.iframeUrl;
-            iframe.style.width = '100%';
-            iframe.style.height = '100%';  // Fill the modal container
-            iframe.style.border = 'none';
-            modalMapContainer.appendChild(iframe);
+            if (project.iframeUrl.endsWith('.pdf')) {
+                const embed = document.createElement('embed');
+                embed.src = project.iframeUrl;
+                embed.type = 'application/pdf';
+                embed.style.width = '100%';
+                embed.style.height = '600px';
+                modalMapContainer.appendChild(embed);
+            } else {
+                const iframe = document.createElement('iframe');
+                iframe.src = project.iframeUrl;
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                iframe.style.border = 'none';
+                modalMapContainer.appendChild(iframe);
+            }
         }
 
-        // Close modal
         function closeModal() {
             const modal = document.getElementById('modal');
             modal.style.display = 'none';
         }
 
-        // Close the modal if clicked outside of the content area
         window.onclick = function(event) {
             const modal = document.getElementById('modal');
             if (event.target === modal) {
@@ -239,5 +366,5 @@
         }
     </script>
 
-</body>
-</html>
+    </body>
+    </html>
