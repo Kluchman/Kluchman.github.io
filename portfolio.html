@@ -86,9 +86,11 @@
         }
     
         .portfolio-item img {
-            width: 100%;
-            height: auto;
+            width: 250px; /* Set a fixed width */
+            height: 150px; /* Set a fixed height */
+            object-fit: cover; /* Ensure images fit the specified dimensions */
             border-radius: 0 0 8px 8px;
+
         }
     
         .portfolio-item h3 {
@@ -170,164 +172,148 @@
     <div class="nav-container">
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#Portfolio">Portfolio</a></li>
+                <li><a href="index.html">Back to Home</a></li>
+                <!-- <li><a href="#Portfolio">Portfolio</a></li> -->
             </ul>
         </nav>
     </div>
 
     <!-- Portfolio Section -->
-    <div class="portfolio-container" id="Portfolio">
-        <!-- Category: Interactive Maps -->
-        <div class="portfolio-category">
-            <h2>Interactive Maps</h2>
-            <div class="portfolio-items">
-                <div class="portfolio-item" onclick="openProject('project_Interactive_DEVELOP_Map')">
-                    <h3>Interactive Map Project</h3>
-                    <img src="images/HVI_Asheville_Preview.png" alt="HVI Asheville Preview">
-                </div>
-                <div class="portfolio-item" onclick="openProject('project_dashapp_Map')">
-                    <h3>Interactive Dashapp App</h3>
-                    <img src="images/dashapp_preview_image.png" alt="Dashapp Preview">
-                </div>
-                <div class="portfolio-item" onclick="openProject('project_Solar_Panels_Map')">
-                    <h3>Solar Panels in Providence</h3>
-                    <img src="images/Providence_preview_image.png" alt="Solar Panels Map">
-                </div>
-                <div class="portfolio-item" onclick="openProject('project_Night_Lights_Map')">
-                    <h3>Nighttime Lights in Asheville</h3>
-                    <img src="images/Night_Lights_preview_image.png" alt="Night Lights Map">
-                </div>
+<div class="portfolio-container" id="Portfolio">
+    <!-- Category: Interactive Maps -->
+    <div class="portfolio-category">
+        <h2>Interactive Maps - Warning, these maps can take up to 15 seconds to load, or 1 minute for the Dash app.</h2>
+        <div class="portfolio-items">
+            <div class="portfolio-item" onclick="openProject('project_Interactive_DEVELOP_Map')">
+                <h3>Asheville Urban Heat Index</h3>
+                <img src="images/HVI_Asheville_Preview.png" alt="HVI Asheville Preview">
+                <p>This webmap shows a custom Heat Vulnerability Index, Albedo, Evapotranspiration, Celsius, and the CDC Social Vulnerability Index.</p>
+            </div>
+            <div class="portfolio-item" onclick="openProject('project_dashapp_Map')">
+                <h3>Prototype: Publishing a Dashapp</h3>
+                <img src="images/dashapp_preview_image.png" alt="Dashapp Preview">
+                <p>This app retrieves and filters service requests in Boston, MA and is published using Dash. This app is a prototype and is very slow to load.</p>
+            </div>
+            <div class="portfolio-item" onclick="openProject('project_Solar_Panels_Map')">
+                <h3>Large Scale Solar Panels in Providence</h3>
+                <img src="images/Providence_preview_image.png" alt="Solar Panels Map">
+                <p>A test application of the ArcPy SDK displaying large-scale solar panel data in Providence, RI.</p>
+            </div>
+            <div class="portfolio-item" onclick="openProject('project_Night_Lights_Map')">
+                <h3>Nighttime Lights in Asheville Over Time</h3>
+                <img src="images/Night_Lights_preview_image.png" alt="Night Lights Map">
+                <p>Warning: GEE Data sometimes unavailable. An interactive map showing nighttime lights in Asheville, NC, created to test the functionality of publishing data gathered with the GEE Python API.</p>
             </div>
         </div>
+    </div>
 
-
-        <!-- Category: Full Presentations -->
-        <div class="portfolio-category">
-            <h2>Full Presentations</h2>
-            <div class="portfolio-items">
-                <div class="portfolio-item" onclick="openProject('project_DEVELOP_Presentation')">
-                    <h3>Urban Heat Island Effect in Asheville NC</h3>
-                    <img src="images/DEVELOP_Titlepage.png" alt="DEVELOP resentation">
-                    
-                </div>
-                <div class="portfolio-item" onclick="openProject('project_HERO_Presentation')">
-                    <h3>Tree Survivorship in Worcester</h3>
-                    <img src="images/Hero_presentation_image.png" alt="HERO Presentation">
-
-                </div>
-                <div class="portfolio-item" onclick="openProject('project_Air_Quality_Presentation')">
-                    <h3>Examining Air Quality in Mexico City</h3>
-                    <img src="images/Int_DEV_presentation_image.png" alt="Air Quality Presentation">
-
-                </div>
+    <!-- Category: Full Presentations -->
+    <div class="portfolio-category">
+        <h2>Full Presentations</h2>
+        <div class="portfolio-items">
+            <div class="portfolio-item" onclick="openProject('project_DEVELOP_Presentation')">
+                <h3>Urban Heat Island Effect in Asheville NC</h3>
+                <img src="images/DEVELOP_Titlepage.png" alt="DEVELOP Presentation">
+                <p>Full presentation to the City of Asheville and Asheville Greenworks on the UHI effect in Asheville and Vulnerable Populations for NASA DEVELOP.</p>
+            </div>
+            <div class="portfolio-item" onclick="openProject('project_HERO_Presentation')">
+                <h3>Tree Survivorship in Worcester</h3>
+                <img src="images/Hero_presentation_image.png" alt="HERO Presentation">
+                <p>This presentation was given to the DCR and media on a study conducted with the HERO research fellowship on tree survivorship in Worcester, MA.</p>
+            </div>
+            <div class="portfolio-item" onclick="openProject('project_Air_Quality_Presentation')">
+                <h3>Examining Air Quality in Mexico City</h3>
+                <img src="images/Int_DEV_presentation_image.png" alt="Air Quality Presentation">
+                <p>A presentation on using distance to vegetation as a proxy to measure air quality injustices in Mexico City. This presentation serves as an example of a progress report.</p>
             </div>
         </div>
+    </div>
 
-        <!-- Category: Posters -->
-        <div class="portfolio-category">
-            <h2>Posters</h2>
-            <div class="portfolio-items">
-                <div class="portfolio-item" onclick="openProject('project_Eucalyptus_Poster')">
-                    <h3>Eucalyptus Growth in SF Bay</h3>
-                    <img src="images/Eucalyptus_ML_image.png" alt="Eucalyptus Poster">
-                    
-                </div>
-                <div class="portfolio-item" onclick="openProject('project_NEARC_Poster')">
-                    <h3>Nighttime Lights Poster</h3>
-                    <img src="images/Nearc_Image.png" alt="NEARC Poster">
-                    
-                </div>
-                <div class="portfolio-item" onclick="openProject('project_NESTVAL_Poster')">
-                    <h3>Tree Survivorship Poster</h3>
-                    <img src="images/HERO2023_Quant_Poster.png" alt="NESTVAL Poster">
-                    
-                </div>
+    <!-- Category: Posters -->
+    <div class="portfolio-category">
+        <h2>Posters</h2>
+        <div class="portfolio-items">
+            <div class="portfolio-item" onclick="openProject('project_Eucalyptus_Poster')">
+                <h3>Eucalyptus Growth in SF Bay</h3>
+                <img src="images/Eucalyptus_ML_image.png" alt="Eucalyptus Poster">
+                <p>This was the poster component of my final project for the Advanced Raster GIS course, where I worked with a group to examine Eucalyptus Growth in the SF Bay area using Random Forests in GEE and Maximum Entropy in ArcGIS Pro.</p>
+            </div>
+            <div class="portfolio-item" onclick="openProject('project_NEARC_Poster')">
+                <h3>NEARC: Urban Heat Inequality</h3>
+                <img src="images/Nearc_Image.png" alt="NEARC Poster">
+                <p>This poster represented my senior thesis work on urban heat island effects and environmental justice in Worcester, MA, and won a flash talk award at NEARC.</p>
+            </div>
+            <div class="portfolio-item" onclick="openProject('project_NESTVAL_Poster')">
+                <h3>NESTVAL: Urban Tree Survivorship </h3>
+                <img src="images/HERO2023_Quant_Poster.png" alt="NESTVAL Poster">
+                <p>Award-winning poster for the NESTVAL conference on urban tree survivorship in Worcester, MA after large scale tree removal in 2010 due to the Longhorned Beetle.</p>
             </div>
         </div>
     </div>
 </div>
 
-    <!-- Modal for showing full project -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div id="modal-map" class="interactive-map-container"></div>
-        </div>
+<!-- Modal for showing full project -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div id="modal-map" class="interactive-map-container"></div>
     </div>
+</div>
 
-
-    <script>
-        function openProject(projectId) {
-            const projects = {
-                'project_Interactive_DEVELOP_Map': {
-                    title: 'Interactive Map Project',
-                    img: 'images/HVI_Asheville_Preview.png',
-                    description: 'This project shows an interactive map of Asheville.',
-                    iframeUrl: 'https://kluchman.github.io/HVI_leaflet_map/'
-                },
-                'project_dashapp_Map': {
-                    title: 'Interactive Dashapp App',
-                    img: 'images/dashapp_preview_image.png',
-                    description: 'This app shows retrieves and filters service requests in Boston, MA and is published using Dash',
-                    iframeUrl: 'https://service-requests-dash-lab08-1.onrender.com/'
-                },
-                'project_HERO_Presentation': {
-                    title: 'Tree Survivorship in Worcester',
-                    img: 'images/Hero_presentation_image.png',
-                    description: 'This was the presentation given to the DCR and media on a study I conducted with the HERO research fellowship on tree survivorship in Worcester, MA.',
-                    iframeUrl: 'images/CK_HERO_Tree_Mortality_Presentation.pdf'
-                },
-                'project_Eucalyptus_Poster': {
-                    title: 'Eucalyptus Growth in San Francisco Bay',
-                    img: 'images/Eucalyptus_ML_image.png',
-                    description: 'This was the poster component of my final project for my course titled Advanced Raster GIS, where I worked with a team to examine Eucalyptus Growth in the San Francisco Bay area using Random Forests in Google Earth Engine and Maximum Entropy in ArcGIS Pro.',
-                    iframeUrl: 'images/CK_Eucalyptus_Growth_SF.pdf'
-                },
-                'project_Solar_Panels_Map': {
-                    title: 'Solar Panels in Providence RI',
-                    img: 'images/Providence_preview_image.png',
-                    description: 'A test application of the ArcPy SDK',
-                    iframeUrl: 'https://kluchman.github.io/Providence_Solar_Panels_Lab09/'
-                },
-
-                'project_Night_Lights_Map': {
-                    title: 'Nighttime Lights in Providence RI',
-                    img: 'images/Night_Lights_preview_image.png',
-                    description: 'An interactive map showing night time lights in Asheville NC',
-                    iframeUrl: 'https://kluchman.github.io/gee_nightime_asheville_lab10/'
-                },
-
-                'project_Air_Quality_Presentation': {
-                    title: 'Examining Air Quality in Mexico City',
-                    img: 'images/Int_DEV_presentation_image.png',
-                    description: 'A presentation on using distance to vegetation as a proxity to measure air quality injustices',
-                    iframeUrl: 'images/Caleb_Kluchman_Final_Project_Presentation_Int_Dev.pdf'
-                },
-
-                'project_NEARC_Poster': {
-                    title: 'Environmental Injustice and UHI in Worcester',
-                    img: 'images/Nearc_image.png',
-                    description: 'An interactive map showing night time lights in Asheville NC',
-                    iframeUrl: 'images/CK_NEARC_2024_Poster.pptx.pdf'
-                },
-
-                'project_NESTVAL_Poster': {
-                    title: 'Tree Survivorship Poster',
-                    img: 'images/HERO2023_Quant_Poster.png',
-                    description: 'Award Winning Poster for NESTVAL conference on urban tree survivorship in Worcester, MA',
-                    iframeUrl: 'images/HERO2023_Quant_Poster.png'
-                },
-
-                'project_DEVELOP_Presentation': {
-                    title: 'Asheville UHI Effect and Offset Plans',
-                    img: 'images/DEVELOP_Titlepage.png',
-                    description: 'Full presentation to the City of Asheville on the UHI effect in Asheville and Vulnerable Populations',
-                    iframeUrl: 'images/2024NASA_DEVELOP_NCEI_AshevilleUrbanII_Presentation.pptx.pdf'
-                },
-
-
-            };
+<script>
+    function openProject(projectId) {
+        const projects = {
+            'project_Interactive_DEVELOP_Map': {
+                title: 'Asheville Urban Heat Index',
+                img: 'images/HVI_Asheville_Preview.png',
+                iframeUrl: 'https://kluchman.github.io/HVI_leaflet_map/'
+            },
+            'project_dashapp_Map': {
+                title: 'PROTOTYPE: Interactive Dashapp',
+                img: 'images/dashapp_preview_image.png',
+                iframeUrl: 'https://service-requests-dash-lab08-1.onrender.com/'
+            },
+            'project_HERO_Presentation': {
+                title: 'Urban Tree Survivorship in Worcester',
+                img: 'images/Hero_presentation_image.png',
+                iframeUrl: 'images/CK_HERO_Tree_Mortality_Presentation.pdf'
+            },
+            'project_Eucalyptus_Poster': {
+                title: 'Eucalyptus Growth in San Francisco Bay',
+                img: 'images/Eucalyptus_ML_image.png',
+                iframeUrl: 'images/CK_Eucalyptus_Growth_SF.pdf'
+            },
+            'project_Solar_Panels_Map': {
+                title: 'PROTOTYPE: Solar Panels in Providence RI',
+                img: 'images/Providence_preview_image.png',
+                iframeUrl: 'https://kluchman.github.io/Providence_Solar_Panels_Lab09/'
+            },
+            'project_Night_Lights_Map': {
+                title: 'PROTOTYPE: Nighttime Lights in Providence RI',
+                img: 'images/Night_Lights_preview_image.png',
+                iframeUrl: 'https://kluchman.github.io/gee_nightime_asheville_lab10/'
+            },
+            'project_Air_Quality_Presentation': {
+                title: 'Examining Air Quality in Mexico City',
+                img: 'images/Int_DEV_presentation_image.png',
+                iframeUrl: 'images/Caleb_Kluchman_Final_Project_Presentation_Int_Dev.pdf'
+            },
+            'project_NEARC_Poster': {
+                title: 'Environmental Injustice and UHI in Worcester',
+                img: 'images/Nearc_image.png',
+                iframeUrl: 'images/CK_NEARC_2024_Poster.pptx.pdf'
+            },
+            'project_NESTVAL_Poster': {
+                title: 'Tree Survivorship Poster',
+                img: 'images/HERO2023_Quant_Poster.png',
+                iframeUrl: 'images/HERO2023_Quant_Poster.png'
+            },
+            'project_DEVELOP_Presentation': {
+                title: 'Asheville UHI Effect and Offset Plans',
+                img: 'images/DEVELOP_Titlepage.png',
+                iframeUrl: 'images/2024NASA_DEVELOP_NCEI_AshevilleUrbanII_Presentation.pptx.pdf'
+            }
+        };
 
             const project = projects[projectId];
             const modal = document.getElementById('modal');
