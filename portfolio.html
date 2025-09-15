@@ -225,49 +225,32 @@
 
   <!-- Portfolio Section -->
   <div class="portfolio-container" id="Portfolio">
-    <!-- Category: Interactive Maps -->
+    <!-- Category: Maps (renamed) -->
     <div class="portfolio-category">
-      <h2>Interactive Maps</h2>
+      <h2>Maps</h2>
       <div class="portfolio-items">
         <div class="portfolio-item" onclick="openProject('project_Interactive_DEVELOP_Map')">
-          <h3>Asheville Urban Heat Index</h3>
+          <h3>Interactive: Asheville Urban Heat Index</h3>
           <img src="images/HVI_Asheville_Preview.png" alt="HVI Asheville Preview">
-          <p>This webmap shows a custom Heat Vulnerability Index, Albedo, Evapotranspiration, Celsius, and the CDC Social Vulnerability Index.</p>
+          <p>Interactive web map showing a custom Heat Vulnerability Index, Albedo, Evapotranspiration, Celsius, and the CDC Social Vulnerability Index.</p>
         </div>
         <div class="portfolio-item" onclick="openProject('project_dashapp_Map')">
-          <h3>Prototype: Publishing a Dashapp</h3>
+          <h3>Interactive: Publishing a Dashapp</h3>
           <img src="images/dashapp_preview_image.png" alt="Dashapp Preview">
-          <p>This app retrieves and filters service requests in Boston, MA and is published using Dash. This app serves no real function and was mainly an effort to expand my skillset.</p>
+          <p>Interactive app that retrieves and filters service requests in Boston, MA; published using Dash.</p>
         </div>
         <div class="portfolio-item" onclick="openProject('project_Solar_Panels_Map')">
-          <h3>Large Scale Solar Panels in Providence</h3>
+          <h3>Interactive: Large Scale Solar Panels in Providence</h3>
           <img src="images/Providence_preview_image.png" alt="Solar Panels Map">
-          <p>A test application of the ArcPy SDK displaying large-scale solar panel data in Providence, RI.</p>
+          <p>Interactive test application of the ArcPy SDK displaying large-scale solar panel data in Providence, RI.</p>
         </div>
-        <!-- <div class="portfolio-item" onclick="openProject('project_Night_Lights_Map')">
-          <h3>Nighttime Lights in Asheville Over Time</h3>
-          <img src="images/Night_Lights_preview_image.png" alt="Night Lights Map">
-          <p>Warning: GEE Data sometimes unavailable. An interactive map showing nighttime lights in Asheville, NC, created to test the functionality of publishing data gathered with the GEE Python API.</p>
-        </div> -->
-      </div>
-    </div>
 
-    <!-- New Category: Example Projects -->
-    <div class="portfolio-category">
-      <h2>Recent and in Progress Projects</h2>
-      <div class="portfolio-items">
+        <!-- Moved here from Recent Projects -->
         <div class="portfolio-item" onclick="openProject('Random_Forest_Maps')">
-          <h3>Random Forest LULC Classification in R and QGIS</h3>
+          <h3>Interactive: Random Forest LULC Classification in R and QGIS</h3>
           <img src="images/RF_Spectral_LandCover.png" alt="Spectral Unmixing Maps">
-          <p>Click to view a collection of Land Use Land Cover maps made with Random Forest in R, and mapped in QGIS</p>
+          <p>Interactive carousel of Land Use Land Cover maps made with Random Forest in R, mapped in QGIS.</p>
         </div>
-
-        <div class="portfolio-item" onclick="openProject('WCS_Presentation')">
-            <h3>Wildlife Conservation Society in progress consulting work</h3>
-            <img src="images/WCS_Example_slide_3.png" alt="WCS Consulting Work">
-            <p>Click to view a collection of slides and graphs containing remote sensing analysis.</p>
-        </div>
-
       </div>
     </div>
 
@@ -375,11 +358,10 @@
             img: 'images/DEVELOP_Titlepage.png',
             iframeUrl: 'images/2024NASA_DEVELOP_NCEI_AshevilleUrbanII_Presentation.pptx.pdf'
             },
-            // New project entry for the Random Forest carousel
+            // Random Forest carousel (now in Maps section)
             'Random_Forest_Maps': {
             title: 'Example Projects - Random Forest LULC Classification in R',
             img: 'images/RF_Spectral_LandCover.png'
-            // No iframeUrl needed, we will build a carousel.
             }
         };
 
@@ -441,83 +423,28 @@
             slideIndex = 0;
             showSlide(slideIndex);
 
-        } else if (projectId === 'WCS_Presentation') {
-            // Create carousel container for WCS Presentation
-            const carouselDiv = document.createElement('div');
-            carouselDiv.className = 'carousel';
-
-            // Define an array with the URLs for your WCS presentation slides.
-            const maps = [
-            'images/WCS_Example_slide_1.png',
-            'images/WCS_Example_slide_2.png',
-            'images/WCS_Example_slide_3.png',
-            'images/WCS_Example_slide_4.png',
-            'images/WCS_Example_slide_4.png', // duplicate if needed
-            'images/WCS_Example_slide_5.png',
-            'images/WCS_Example_slide_6.png'
-            ];
-
-            // Create a slide for each image
-            maps.forEach(url => {
-            const slideDiv = document.createElement('div');
-            slideDiv.className = 'carousel-slide';
-            // Create an <img> element for the slide image
-            const img = document.createElement('img');
-            img.src = url;
-            img.style.width = "100%";
-            img.style.height = "100%";
-            img.style.objectFit = "contain";
-            slideDiv.appendChild(img);
-            carouselDiv.appendChild(slideDiv);
-            });
-
-            // Create navigation buttons for the carousel
-            const prevBtn = document.createElement('button');
-            prevBtn.id = 'prev-btn';
-            prevBtn.className = 'carousel-btn';
-            prevBtn.innerHTML = '&#10094;';
-            prevBtn.onclick = prevSlide;
-            const nextBtn = document.createElement('button');
-            nextBtn.id = 'next-btn';
-            nextBtn.className = 'carousel-btn';
-            nextBtn.innerHTML = '&#10095;';
-            nextBtn.onclick = nextSlide;
-            
-            carouselDiv.appendChild(prevBtn);
-            carouselDiv.appendChild(nextBtn);
-
-            // Create a description block underneath the carousel
-            const descriptionDiv = document.createElement('div');
-            descriptionDiv.id = 'carousel-description';
-            descriptionDiv.textContent = 'This images consist of some in progress analysis that I am performing for the Wildlife Conservation Society (WCS). I am examining climate and night time lights in 645 management units across Central and South America in order to find at risk protected areas and identify illegal extraction of resources.';
-
-            modalMapContainer.appendChild(carouselDiv);
-            modalMapContainer.appendChild(descriptionDiv);
-
-            // Initialize the carousel
-            slideIndex = 0;
-            showSlide(slideIndex);
-
         } else {
-            // Non-carousel project handling
+            // Non-carousel project handling (PDFs and web apps)
             const project = projects[projectId];
-            if (project.iframeUrl.endsWith('.pdf')) {
-            const embed = document.createElement('embed');
-            embed.src = project.iframeUrl;
-            embed.type = 'application/pdf';
-            embed.style.width = '100%';
-            embed.style.height = '600px';
-            modalMapContainer.appendChild(embed);
+            if (!project) return;
+
+            if (project.iframeUrl.toLowerCase().endsWith('.pdf')) {
+              const embed = document.createElement('embed');
+              embed.src = project.iframeUrl;
+              embed.type = 'application/pdf';
+              embed.style.width = '100%';
+              embed.style.height = '100%';   // full height for easier PDF paging
+              modalMapContainer.appendChild(embed);
             } else {
-            const iframe = document.createElement('iframe');
-            iframe.src = project.iframeUrl;
-            iframe.style.width = '100%';
-            iframe.style.height = '100%';
-            iframe.style.border = 'none';
-            modalMapContainer.appendChild(iframe);
+              const iframe = document.createElement('iframe');
+              iframe.src = project.iframeUrl;
+              iframe.style.width = '100%';
+              iframe.style.height = '100%';
+              iframe.style.border = 'none';
+              modalMapContainer.appendChild(iframe);
             }
         }
-        }
+    }
 
     // Closes the modal when the close button is clicked or user clicks outside the modal content.
     function closeModal() {
