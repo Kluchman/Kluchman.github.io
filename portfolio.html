@@ -179,6 +179,14 @@
       border: none;
     }
 
+    /* Ensure images scale properly in slides */
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
     .carousel-btn {
       position: absolute;
       top: 50%;
@@ -279,7 +287,7 @@
         </div>
         <div class="portfolio-item" onclick="openProject('WCS_Presentation')">
           <h3>Wildlife Conservation Society Presentation</h3>
-          <img src="files/WCS_Presentation.png" alt="WCS Presentation">
+          <img src="images/WCS_Example_slide_3.png" alt="WCS Presentation">
           <p>The culmination of my consulting work for the Wildlife Conservation Society (WCS) where our team examined the health, risk, and changes to land use in WCS protected areas in Central and South America.</p>
         </div>
       </div>
@@ -349,12 +357,12 @@
             },
             'WCS_Presentation': {
             title: 'Wildlife Conservation Society Presentation',
-            img: 'files/WCS_Presentation.png',
+            img: 'images/WCS_Example_slide_3.png',
             iframeUrl: 'files/WCS_Presentation.pdf'
             },
             'project_NEARC_Poster': {
             title: 'Environmental Injustice and UHI in Worcester',
-            img: 'images/Nearc_image.png',
+            img: 'images/Nearc_Image.png',
             iframeUrl: 'images/CK_NEARC_2024_Poster.pptx.pdf'
             },
             'project_NESTVAL_Poster': {
@@ -395,13 +403,14 @@
             'images/rf_with_transform.png'
             ];
 
-            // Create a slide for each map in the array
+            // Create a slide for each map in the array (use <img>, not <iframe>)
             maps.forEach(url => {
             const slideDiv = document.createElement('div');
             slideDiv.className = 'carousel-slide';
-            const iframe = document.createElement('iframe');
-            iframe.src = url;
-            slideDiv.appendChild(iframe);
+            const img = document.createElement('img');
+            img.src = url;
+            img.alt = 'Random Forest LULC output map';
+            slideDiv.appendChild(img);
             carouselDiv.appendChild(slideDiv);
             });
 
