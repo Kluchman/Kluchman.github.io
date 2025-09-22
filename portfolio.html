@@ -234,23 +234,30 @@
           <img src="images/HVI_Asheville_Preview.png" alt="HVI Asheville Preview">
           <p>Interactive web map showing a custom Heat Vulnerability Index, Albedo, Evapotranspiration, Celsius, and the CDC Social Vulnerability Index.</p>
         </div>
-        <div class="portfolio-item" onclick="openProject('project_dashapp_Map')">
-          <h3>Interactive: Publishing a Dashapp</h3>
-          <img src="images/dashapp_preview_image.png" alt="Dashapp Preview">
-          <p>Interactive app that retrieves and filters service requests in Boston, MA; published using Dash.</p>
-        </div>
         <div class="portfolio-item" onclick="openProject('project_Solar_Panels_Map')">
           <h3>Interactive: Large Scale Solar Panels in Providence</h3>
           <img src="images/Providence_preview_image.png" alt="Solar Panels Map">
           <p>Interactive test application of the ArcPy SDK displaying large-scale solar panel data in Providence, RI.</p>
         </div>
-
-        <!-- Moved here from Recent Projects -->
+        <div class="portfolio-item" onclick="openProject('project_PCI_Bubble_Map')">
+          <h3>Consulting: PCI Spatial Lending Distribution</h3>
+          <img src="images/PCI_Bubble_Map.png" alt="PCI Bubble Map">
+          <p>This map illustrates the distribution of towns in Massachusetts that 
+            <a href="https://www.pcifund.com/" target="_blank" rel="noopener">The Property and Casualty Initiative (PCI)</a> 
+            has provided loans to since 1999. Bubble sizes represent the total loan amount per town, and town boundaries are color-coded by MOBD Region.
+          </p>
+        </div>
         <div class="portfolio-item" onclick="openProject('Random_Forest_Maps')">
           <h3>Interactive: Random Forest LULC Classification in R and QGIS</h3>
           <img src="images/RF_Spectral_LandCover.png" alt="Spectral Unmixing Maps">
           <p>Interactive carousel of Land Use Land Cover maps made with Random Forest in R, mapped in QGIS.</p>
         </div>
+        <div class="portfolio-item" onclick="openProject('project_dashapp_Map')">
+          <h3>Interactive: Publishing a Dashapp</h3>
+          <img src="images/dashapp_preview_image.png" alt="Dashapp Preview">
+          <p>Interactive app that retrieves and filters service requests in Boston, MA; published using Dash.</p>
+        </div>
+
       </div>
     </div>
 
@@ -357,6 +364,13 @@
             title: 'Asheville UHI Effect and Offset Plans',
             img: 'images/DEVELOP_Titlepage.png',
             iframeUrl: 'images/2024NASA_DEVELOP_NCEI_AshevilleUrbanII_Presentation.pptx.pdf'
+            },
+            'project_PCI_Bubble_Map': {
+            title: 'PCI Spatial Lending Distribution',
+            img: 'images/PCI_Bubble_Map.png',
+            // If you have a live web map page, put its URL below instead of the image path.
+            // For now, opening the same preview image in the modal keeps it working.
+            iframeUrl: 'images/PCI_Bubble_Map.png'
             },
             // Random Forest carousel (now in Maps section)
             'Random_Forest_Maps': {
