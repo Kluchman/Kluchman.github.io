@@ -140,7 +140,27 @@
       height: 100%;
       border: 1px solid #ccc;
       border-radius: 8px;
-      overflow: hidden;
+      overflow: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .zoomable-image {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+    }
+
+    .zoomable-image.zoomed {
+      cursor: zoom-out;
+      max-width: none;
+      max-height: none;
     }
 
     .close-btn {
@@ -152,6 +172,7 @@
       padding: 10px;
       font-size: 20px;
       cursor: pointer;
+      z-index: 1001;
     }
 
     .close-btn:hover {
@@ -367,14 +388,13 @@
             'project_PCI_Bubble_Map': {
             title: 'PCI Spatial Lending Distribution',
             img: 'images/PCI_BubbleMap.png',
-            // If you have a live web map page, put its URL below instead of the image path.
-            // For now, opening the same preview image in the modal keeps it working.
+            // Display as a zoomable image
             iframeUrl: 'images/PCI_BubbleMap.png'
             },
             // Random Forest carousel (now in Maps section)
             'Random_Forest_Maps': {
             title: 'Example Projects - Random Forest LULC Classification in R',
-            img: 'images/MaFOMP_LandCover.png'
+            img: 'images/RF_Spectral_LandCover.png'
             }
         };
 
@@ -391,7 +411,7 @@
 
             // Define an array with the URLs for your 5 maps.
             const maps = [
-            'images/MaFOMP_LandCover.png',
+            'images/RF_Spectral_LandCover.png',
             'images/rf_Spectral_Final.png',
             'images/rf_with_Ancillary.png',
             'images/rf_with_spectral_and_ancillary.png',
@@ -437,7 +457,7 @@
             showSlide(slideIndex);
 
         } else {
-            // Non-carousel project handling (PDFs and web apps)
+            // Non-carousel project handling (PDFs, web apps, and images)
             const project = projects[projectId];
             if (!project) return;
 
@@ -446,9 +466,25 @@
               embed.src = project.iframeUrl;
               embed.type = 'application/pdf';
               embed.style.width = '100%';
-              embed.style.height = '100%';   // full height for easier PDF paging
+              embed.style.height = '100%';
               modalMapContainer.appendChild(embed);
+            } else if (project.iframeUrl.toLowerCase().endsWith('.png') || 
+                       project.iframeUrl.toLowerCase().endsWith('.jpg') || 
+                       project.iframeUrl.toLowerCase().endsWith('.jpeg')) {
+              // Handle static images with zoom functionality
+              const img = document.createElement('img');
+              img.src = project.iframeUrl;
+              img.className = 'zoomable-image';
+              img.alt = project.title;
+              
+              // Add click-to-zoom functionality
+              img.onclick = function() {
+                this.classList.toggle('zoomed');
+              };
+              
+              modalMapContainer.appendChild(img);
             } else {
+              // Handle iframes (web apps)
               const iframe = document.createElement('iframe');
               iframe.src = project.iframeUrl;
               iframe.style.width = '100%';
